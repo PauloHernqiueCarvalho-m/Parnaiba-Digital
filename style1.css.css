@@ -870,22 +870,31 @@ model-viewer {
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-/* OVERLAY DE LOADING */
+/* OVERLAY DE LOADING CORRIGIDO */
 .ar-loading-overlay {
     position: absolute;
     inset: 0;
-    background: #EFE9E1;
+    background: rgba(239, 233, 225, 0.95); /* Deixei um leve alfa para o vaso aparecer ao fundo enquanto carrega */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: opacity 0.5s ease;
-    z-index: 2;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 10; /* Garante que fique acima do modelo durante o carregamento */
 }
 
+/* Esconde o filtro quando o JavaScript injeta a classe .hidden */
 .ar-loading-overlay.hidden {
-    opacity: 0;
-    pointer-events: none;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    display: none !important; /* Remove o elemento do fluxo para liberar os cliques */
+}
+
+/* Esconde o filtro nativamente se o model-viewer terminar de carregar sozinho */
+.ar-loading-overlay.dismiss {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    display: none !important;
 }
 
 /* ... (Resto do seu CSS de responsividade) ... */
