@@ -294,32 +294,36 @@
 
     </section>
 
+    
   <div class="viewer-wrapper">
-                <model-viewer 
-                    id="vaso-viewer"
-                    src="vaso.glb" 
-                    ios-src="vaso.usdz"
-                    alt="Modelo 3D de um vaso histórico de Santana de Parnaíba"
-                    ar 
-                    ar-modes="scene-viewer quick-look webxr" 
-                    camera-controls 
-                    auto-rotate 
-                    shadow-intensity="1" 
-                    exposure="1"
-                    touch-action="pan-y">
-                    
-                    <button slot="ar-button" class="ar-button">
-                        Visualizar no meu espaço
-                    </button>
+    <!-- 1. O MODEL-VIEWER FICA LIMPO -->
+    <model-viewer 
+        id="vaso-viewer"
+        src="vaso.glb" 
+        ios-src="vaso.usdz"
+        alt="Modelo 3D de um vaso histórico de Santana de Parnaíba"
+        ar 
+        ar-modes="scene-viewer quick-look webxr" 
+        camera-controls 
+        auto-rotate 
+        shadow-intensity="1" 
+        exposure="1"
+        touch-action="pan-y">
+        
+        <button slot="ar-button" class="ar-button">
+            Visualizar no meu espaço
+        </button>
+    </model-viewer>
 
-                    <div id="ar-loading" class="ar-loading-overlay">
-                        <div class="loader"></div>
-                        <p>Carregando Modelo 3D...</p>
-                    </div>
-                </model-viewer>
-            </div>
-            <p class="hint">Use os dedos para girar e dar zoom no objeto.</p>
+    <!-- 2. A TELA DE LOADING FICA FORA DELE, MAS DENTRO DA WRAPPER OU GLOBAL -->
+    <div id="ar-loading" class="ar-loading-overlay">
+        <div class="loader"></div>
+        <p>Carregando Modelo 3D...</p>
+    </div>
+</div>
+<p class="hint">Use os dedos para girar e dar zoom no objeto.</p>
 
+    
     <!-- IMPORTÂNCIA -->
     <main class="container-informacoes" id="importancia">
 
